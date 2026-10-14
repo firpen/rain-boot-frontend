@@ -1,0 +1,13 @@
+<div>
+    <ul>
+        @for (message of messageList(); track $index) {
+            <li>
+                {{message.role}}: {{message.content}} 
+            </li>
+        }
+    </ul>
+    <form (ngSubmit)="onSubmit()">
+        <input name="prompt" [(ngModel)]="prompt" placeholder="Write your question here">
+        <button type="submit" >⏎</button>
+    </form>
+</div>
