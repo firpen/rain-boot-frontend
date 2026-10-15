@@ -1,0 +1,31 @@
+.chatbotContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 26vw;
+  max-height: 40vh;
+}
+
+.chatHeader {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+li {
+  list-style: none;
+  padding-top: 5px;
+}
+
+ul {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding-left: 3px;
+  margin: 1px;
+}
+
+form {
+  display: flex;
+  align-self: center;
+}

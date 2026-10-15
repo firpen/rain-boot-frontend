@@ -16,7 +16,7 @@ export class ChatBot {
   messageList = signal<Message[]>([]);
 
   onSubmit() {
-    this.messageList.update((list => [...list, {role: "du", "content": this.prompt()}]))
+    this.messageList.update((list => [...list, {role: "user", "content": this.prompt()}]))
     this.prompt.set('');
     this.chatBotService.postMessage(this.messageList()).subscribe({
       next: (response) => {
