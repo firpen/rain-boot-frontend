@@ -1,13 +1,14 @@
-<div>
-    <ul>
-        @for (message of messageList(); track $index) {
-            <li>
-                {{message.role}}: {{message.content}} 
-            </li>
-        }
-    </ul>
-    <form (ngSubmit)="onSubmit()">
-        <input name="prompt" [(ngModel)]="prompt" placeholder="Write your question here">
-        <button type="submit" >⏎</button>
-    </form>
+<div class="chatbotContainer">
+  <div class="chatHeader">
+    <label>Got any Questions?</label>
+  </div>
+  <ul>
+    @for (message of messageList(); track $index) {
+      <li>{{ message.role }}: {{ message.content }}</li>
+    }
+  </ul>
+  <form (ngSubmit)="onSubmit()">
+    <input name="prompt" [(ngModel)]="prompt" placeholder="Skriv din fråga här" />
+    <button type="submit">⏎</button>
+  </form>
 </div>

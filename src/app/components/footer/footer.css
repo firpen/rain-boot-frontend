@@ -1,0 +1,14 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.support {
+  display: flex;
+  flex-direction: column;
+}

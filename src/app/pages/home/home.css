@@ -1,0 +1,14 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-footer {
+  margin-top: auto;
+}
+
+app-chat-bot {
+  display: flex;
+  justify-content: flex-end;
+}

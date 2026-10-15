@@ -7,9 +7,11 @@ import { ChatBot } from './components/chat-bot/chat-bot';
 import { Home } from './pages/home/home';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
 
 @NgModule({
-  declarations: [App, ChatBot, Home],
+  declarations: [App, ChatBot, Home, Header, Footer],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],

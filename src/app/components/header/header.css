@@ -1,0 +1,17 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+.header {
+  padding-left: 10px;
+}
+
+.dropdown {
+  padding-right: 10px;
+}
