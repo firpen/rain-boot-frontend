@@ -1,0 +1,10 @@
+<div class="rainbootContainer">
+  @for (rainboot of rainbootList(); track rainboot.productId) {
+    <div class="product">
+        <a [routerLink]="['/product', rainboot.productId ]" >
+            <img src="{{ rainboot.pictures[0].img }}" />
+        </a>
+      <label>{{ rainboot.productName }}</label>
+    </div>
+  }
+</div>
