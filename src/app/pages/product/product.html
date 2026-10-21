@@ -1,0 +1,16 @@
+<app-header />
+<div class="productContainer">
+  <h1>{{ rainBoot()!.productName }}</h1>
+  <div class="picture">
+    <button (click)="changePictureLeft()"><</button>
+    <img src="{{ rainBoot()!.pictures[pictureNumber()].img }}" />
+    <button (click)="changePictureRight()">></button>
+  </div>
+  <label>{{ rainBoot()!.price }} kr</label>
+  <label>Strlk</label>
+  <select (select)="(size)">
+    <option>{{ rainBoot()!.size }}</option>
+  </select>
+  <button (click)="addToCart()">Lägg i varukorgen</button>
+</div>
+<app-footer />

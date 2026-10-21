@@ -1,1 +1,14 @@
 <router-outlet />
+<div class="chatbotContainer">
+  @if (rainBootService.showChatBot() === false) {
+    <div class="questions">
+        <label>Frågor?</label>
+        <button (click)="rainBootService.onShowChatBot()">Fråga här</button>
+    </div>
+  } @else {
+    <div class="chatbot">
+        <button class="hideChatBotBtn" (click)="rainBootService.onHideChatBot()">X</button>
+        <app-chat-bot />
+    </div>
+  }
+</div>

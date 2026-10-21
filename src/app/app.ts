@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { RainbootService } from './services/rainboot-service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,7 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('rain-boot-frontend');
+
+  protected rainBootService = inject(RainbootService)
+  
 }
