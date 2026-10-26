@@ -11,9 +11,11 @@ import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { RainBoots } from './components/rainboots/rainboots';
 import { Product } from './pages/product/product';
+import { Cart } from './components/cart/cart';
+import { Umbrellas } from './components/umbrellas/umbrellas';
 
 @NgModule({
-  declarations: [App, ChatBot, Home, Header, Footer, RainBoots, Product],
+  declarations: [App, ChatBot, Home, Header, Footer, RainBoots, Product, Cart, Umbrellas],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],

@@ -22,3 +22,13 @@
   display: flex;
   align-self: flex-end;
 }
+
+app-footer {
+  margin-top: auto;
+}
+
+app-cart {
+  position: fixed;
+  right: 50px;
+  top: 10%;
+}

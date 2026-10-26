@@ -1,14 +1,19 @@
+<app-header />
 <router-outlet />
+@if (this.cartService.showCart() === true) {
+  <app-cart />
+}
 <div class="chatbotContainer">
-  @if (rainBootService.showChatBot() === false) {
+  @if (chatBotService.showChatBot() === false) {
     <div class="questions">
-        <label>Frågor?</label>
-        <button (click)="rainBootService.onShowChatBot()">Fråga här</button>
+      <label>Frågor?</label>
+      <button (click)="chatBotService.onShowChatBot()">Fråga här</button>
     </div>
   } @else {
     <div class="chatbot">
-        <button class="hideChatBotBtn" (click)="rainBootService.onHideChatBot()">X</button>
-        <app-chat-bot />
+      <button class="hideChatBotBtn" (click)="chatBotService.onHideChatBot()">X</button>
+      <app-chat-bot />
     </div>
   }
 </div>
+<app-footer />
