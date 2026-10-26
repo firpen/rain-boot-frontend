@@ -1,16 +1,27 @@
-<app-header />
 <div class="productContainer">
-  <h1>{{ rainBoot()!.productName }}</h1>
+  <h1>{{ product()!.productName }}</h1>
   <div class="picture">
-    <button (click)="changePictureLeft()"><</button>
-    <img src="{{ rainBoot()!.pictures[pictureNumber()].img }}" />
-    <button (click)="changePictureRight()">></button>
+    <button (click)="this.productService.changePictureLeft()"><</button>
+    <img src="{{ product()!.pictures[this.productService.pictureNumber()].img }}" />
+    <button (click)="this.productService.changePictureRight()">></button>
   </div>
-  <label>{{ rainBoot()!.price }} kr</label>
-  <label>Strlk</label>
-  <select (select)="(size)">
-    <option>{{ rainBoot()!.size }}</option>
+  <label>{{ product()!.price }} kr</label>
+  @if (product(); as p) {
+    @if ('size' in p) {
+      <label>Strlk</label>
+      <select [(ngModel)]="size">
+        <option [ngValue]="p.size">{{ p.size }}</option>
+      </select>
+    }
+  }
+  <label>Antal</label>
+  <select [(ngModel)]="quantity">
+    <option [ngValue]="1" >1</option>
+    <option [ngValue]="2" >2</option>
+    <option [ngValue]="3" >3</option>
+    <option [ngValue]="4" >4</option>
+    <option [ngValue]="5" >5</option>
   </select>
   <button (click)="addToCart()">Lägg i varukorgen</button>
 </div>
-<app-footer />
+

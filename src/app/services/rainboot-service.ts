@@ -8,9 +8,8 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class RainbootService {
+  
   private http = inject(HttpClient);
-
-  showChatBot = signal(false);
 
   getRainBoots(): Observable<RainBoot[]> {
     return this.http.get<RainBoot[]>(`${environment.backendUrl}/rainboot`);
@@ -20,11 +19,4 @@ export class RainbootService {
     return this.http.get<RainBoot>(`${environment.backendUrl}/rainboot/${id}`);
   }
 
-  onShowChatBot() {
-    this.showChatBot.set(true);
-  }
-
-  onHideChatBot() {
-    this.showChatBot.set(false);
-  }
 }

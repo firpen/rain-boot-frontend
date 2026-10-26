@@ -1,5 +1,7 @@
 <div class="homeContainer">
-    <app-header />
-    <app-rainboots />
-    <app-footer />
+    @if (this.productService.showAccessoires() === true) {
+        <app-umbrellas />
+    } @else {
+        <app-rainboots />
+    }
 </div>

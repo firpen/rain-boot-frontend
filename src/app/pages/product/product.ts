@@ -2,7 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { RainbootService } from '../../services/rainboot-service';
 import { RainBoot } from '../../models/rainboot';
 import { ActivatedRoute } from '@angular/router';
-import { Picture } from '../../models/picture';
+import { CartItem } from '../../models/cartitem';
+import { Umbrella } from '../../models/umbrella';
+import { ProductService } from '../../services/product-service';
+import { UmbrellaService } from '../../services/umbrella-service';
+import { CartService } from '../../services/cart-service';
 
 @Component({
   selector: 'app-product',
@@ -11,48 +15,61 @@ import { Picture } from '../../models/picture';
   styleUrl: './product.css',
 })
 export class Product {
-
-  protected rainBootService = inject(RainbootService);
+  private rainBootService = inject(RainbootService);
+  private umbrellaService = inject(UmbrellaService);
+  private cartService = inject(CartService);
+  protected productService = inject(ProductService);
   private route = inject(ActivatedRoute);
 
+  quantity = signal(1);
   size = signal<number | null>(null);
-  pictureNumber = signal<number>(0);
+  product = signal<RainBoot | Umbrella | null>(null);
+  cartItem = signal<CartItem | null>(null);
 
-  rainBoot = signal<RainBoot | null>(null);
-  
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.rainBootService.getRainBootById(id).subscribe({
-      next: (response) => {
-        this.rainBoot.set(response);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
+    if (this.productService.showAccessoires() === true) {
+      this.umbrellaService.getUmbrellaById(id).subscribe({
+        next: (response) => {
+          this.product.set(response);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    } else {
+      this.rainBootService.getRainBootById(id).subscribe({
+        next: (response) => {
+          this.product.set(response);
+          this.size.set(response.size)
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
   }
 
   addToCart() {
-
+    if (this.product() && this.size() !== null) {
+      this.cartItem.set({
+        quantity: this.quantity(),
+        product: this.product()!,
+        size: this.size()!,
+        cartId: Number(localStorage.getItem('id')),
+      });
+      this.cartService.addProductToCart(this.cartItem()!).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.cartService.cart.update((cart) => [
+            ...cart, 
+            response.cartItems[response.cartItems.length - 1],
+          ]);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
   }
-
-  changePictureLeft() {
-    if (this.pictureNumber() === 2) {
-      this.pictureNumber.set(0);
-    }
-    else {
-      this.pictureNumber.update((number) => number + 1)
-    }
-  }
-
-  changePictureRight() {
-      if (this.pictureNumber() === 0) {
-      this.pictureNumber.set(2);
-    }
-    else {
-      this.pictureNumber.update((number) => number - 1)
-    }
-  }
-
-
 }

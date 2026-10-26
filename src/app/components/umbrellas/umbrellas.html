@@ -1,0 +1,10 @@
+<div class="umbrellaContainer">
+  @for (umbrella of umbrellaList(); track umbrella.productId) {
+    <div class="product">
+        <a [routerLink]="['/product', umbrella.productId ]" >
+            <img src="{{ umbrella.pictures[0].img }}" />
+        </a>
+      <label>{{ umbrella.productName }}</label>
+    </div>
+  }
+</div>

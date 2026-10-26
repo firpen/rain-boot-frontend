@@ -1,0 +1,29 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  max-height: 30vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header button {
+  position: absolute;
+  right: 0;
+}
+
+.cartList {
+  overflow-y: auto;
+}
+
+.cartList label {
+  padding-right: 5px;
+}
+
+.sum {
+  display: block;
+  text-align: right;
+}

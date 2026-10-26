@@ -3,9 +3,13 @@
     <a routerLink="/">Gummistövelbutiken</a>
   </div>
   <div class="menu">
-    <a>Accessoarer</a>
+    @if (this.productService.showAccessoires() === true) {
+      <button (click)="this.productService.onClickShowRainboots()">Gummistövlar</button>
+    } @else {
+      <button (click)="this.productService.onClickShowAccessoires()">Accessoarer</button>
+    }
     <a>Om oss</a>
-    <a>Varukorg</a>
+    <button (click)="onClickShowCart()">Varukorg</button>
   </div>
   <div class="dropdown">
     <label>Stövelhöjd</label>
