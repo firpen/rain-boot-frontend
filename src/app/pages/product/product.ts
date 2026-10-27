@@ -51,7 +51,7 @@ export class Product {
   }
 
   addToCart() {
-    if (this.product() && this.size() !== null) {
+    if (this.product() !== null) {
       this.cartItem.set({
         quantity: this.quantity(),
         product: this.product()!,

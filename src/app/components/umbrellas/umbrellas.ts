@@ -9,8 +9,7 @@ import { Umbrella } from '../../models/umbrella';
   styleUrl: './umbrellas.css',
 })
 export class Umbrellas {
-
-    private umbrellaService = inject(UmbrellaService);
+  private umbrellaService = inject(UmbrellaService);
 
   umbrellaList = signal<Umbrella[]>([]);
 
@@ -22,8 +21,7 @@ export class Umbrellas {
       },
       error: (err) => {
         console.log(err);
-      }
-    })
+      },
+    });
   }
-
 }
