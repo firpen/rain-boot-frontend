@@ -13,9 +13,21 @@ import { RainBoots } from './components/rainboots/rainboots';
 import { Product } from './pages/product/product';
 import { Cart } from './components/cart/cart';
 import { Umbrellas } from './components/umbrellas/umbrellas';
+import { OrderComplete } from './pages/order-complete/order-complete';
 
 @NgModule({
-  declarations: [App, ChatBot, Home, Header, Footer, RainBoots, Product, Cart, Umbrellas],
+  declarations: [
+    App,
+    ChatBot,
+    Home,
+    Header,
+    Footer,
+    RainBoots,
+    Product,
+    Cart,
+    Umbrellas,
+    OrderComplete,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideHttpClient()],
   bootstrap: [App],

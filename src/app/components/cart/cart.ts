@@ -15,4 +15,17 @@ export class Cart {
   this.cartService.cart().reduce(
     (total, item) => total + item.quantity * item.product.price, 0)
   )
+
+  onCheckout() {
+    const cartId = Number(localStorage.getItem('id'));
+    this.cartService.createStripeCheckoutSession(cartId).subscribe({
+      next: (response) => {
+        console.log(response);
+        window.location.href = response;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
 }

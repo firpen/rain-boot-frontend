@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { OrderComplete } from './order-complete';
+
+describe('OrderComplete', () => {
+  let component: OrderComplete;
+  let fixture: ComponentFixture<OrderComplete>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [OrderComplete],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(OrderComplete);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
