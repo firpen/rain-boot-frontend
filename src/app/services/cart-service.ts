@@ -23,7 +23,11 @@ export class CartService {
     return this.http.post<Cart>(`${environment.backendUrl}/cart/cart`, null)
   }
 
-  getCartById(cartId:number): Observable<Cart> {
+  getCartById(cartId: number): Observable<Cart> {
     return this.http.get<Cart>(`${environment.backendUrl}/cart/${cartId}`);
+  }
+
+  createStripeCheckoutSession(cartId: number): Observable<string> {
+    return this.http.post(`${environment.backendUrl}/stripe/create-checkout-session`, cartId, { responseType: 'text' })
   }
 }
