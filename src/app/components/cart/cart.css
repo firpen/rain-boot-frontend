@@ -2,17 +2,19 @@
   display: flex;
   flex-direction: column;
   max-height: 30vh;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid black;
 }
 
-.header {
+h1 {
+  display: block;
+  margin: 0 auto;
+}
+
+.closeBtn {
   display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.header button {
-  position: absolute;
-  right: 0;
+  justify-self: flex-end;
 }
 
 .cartList {
@@ -21,6 +23,11 @@
 
 .cartList label {
   padding-right: 5px;
+}
+
+.cartList button {
+  display: block;
+  margin: 0 auto;
 }
 
 .sum {

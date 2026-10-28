@@ -4,6 +4,8 @@
   border: 1px solid black;
   width: 26vw;
   max-height: 40vh;
+  background-color: white;
+  padding: 1px;
 }
 
 .chatHeader {
@@ -28,4 +30,8 @@ ul {
 form {
   display: flex;
   align-self: center;
+}
+
+input {
+  width: 23vw;
 }

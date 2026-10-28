@@ -1,17 +1,42 @@
-img {
-  width: 28vw;
-}
-
 .productContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: 90vh;
   margin-top: 20px;
+}
+
+.productview {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 .picture {
   display: flex;
   align-items: center;
+}
+
+img {
+  width: 37vw;
+}
+
+label {
+  display: block;
+  margin: 0 auto;
+}
+
+select {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
 }

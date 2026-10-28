@@ -1,17 +1,1 @@
-.rainbootContainer {
-  display: flex;
-  flex-wrap: wrap;
-}
 
-img {
-  max-width: 33vw;
-}
-
-.product {
-  display: flex;
-  flex-direction: column;
-}
-
-.product label {
-  align-self: center;
-}

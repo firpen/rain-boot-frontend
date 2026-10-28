@@ -1,27 +1,30 @@
 <div class="productContainer">
   <h1>{{ product()!.productName }}</h1>
-  <div class="picture">
-    <button (click)="this.productService.changePictureLeft()"><</button>
-    <img src="{{ product()!.pictures[this.productService.pictureNumber()].img }}" />
-    <button (click)="this.productService.changePictureRight()">></button>
-  </div>
-  <label>{{ product()!.price }} kr</label>
-  @if (product(); as p) {
-    @if ('size' in p) {
-      <label>Strlk</label>
-      <select [(ngModel)]="size">
-        <option [ngValue]="p.size">{{ p.size }}</option>
+  <div class="productview">
+    <div class="picture">
+      <button (click)="this.productService.changePictureLeft()"><</button>
+      <img src="{{ product()!.pictures[this.productService.pictureNumber()].img }}" />
+      <button (click)="this.productService.changePictureRight()">></button>
+    </div>
+    <div class="info">
+      <label>{{ product()!.price }} kr</label>
+      @if (product(); as p) {
+        @if ('size' in p) {
+          <label>Strlk</label>
+          <select [(ngModel)]="size">
+            <option [ngValue]="p.size">{{ p.size }}</option>
+          </select>
+        }
+      }
+      <label>Antal</label>
+      <select [(ngModel)]="quantity">
+        <option [ngValue]="1">1</option>
+        <option [ngValue]="2">2</option>
+        <option [ngValue]="3">3</option>
+        <option [ngValue]="4">4</option>
+        <option [ngValue]="5">5</option>
       </select>
-    }
-  }
-  <label>Antal</label>
-  <select [(ngModel)]="quantity">
-    <option [ngValue]="1" >1</option>
-    <option [ngValue]="2" >2</option>
-    <option [ngValue]="3" >3</option>
-    <option [ngValue]="4" >4</option>
-    <option [ngValue]="5" >5</option>
-  </select>
-  <button (click)="addToCart()">Lägg i varukorgen</button>
+      <button (click)="addToCart()">Lägg i varukorgen</button>
+    </div>
+  </div>
 </div>
-
