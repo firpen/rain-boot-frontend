@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+.itemContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.itemContainer img {
+  width: 32vw;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.product label {
+  align-self: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}

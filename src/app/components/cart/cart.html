@@ -1,8 +1,6 @@
+<button class="closeBtn" (click)="this.cartService.showCart.set(false)">X</button>
 <div class="cartContainer">
-  <div class="header">
-    <h1>Varukorg</h1>
-    <button (click)="this.cartService.showCart.set(false)">X</button>
-  </div>
+  <h1>Varukorg</h1>
   @if (this.cartService.cart().length === 0) {
     <p>Din varukorg är tom</p>
     <p>När du lägger till varor i varukorgen visas de här</p>
