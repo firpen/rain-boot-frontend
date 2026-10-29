@@ -8,15 +8,9 @@
     } @else {
       <button (click)="this.productService.onClickShowAccessoires()">Accessoarer</button>
     }
-    <a>Om oss</a>
-    <button (click)="onClickShowCart()">Varukorg</button>
+    <button>Om oss</button>
   </div>
-  <div class="dropdown">
-    <label>Stövelhöjd</label>
-    <select>
-      <option>Låg</option>
-      <option>Mellan</option>
-      <option>Hög</option>
-    </select>
+  <div class="cart">
+    <button (click)="onClickShowCart()">Varukorg</button>
   </div>
 </div>

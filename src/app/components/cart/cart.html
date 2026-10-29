@@ -1,21 +1,25 @@
-<button class="closeBtn" (click)="this.cartService.showCart.set(false)">X</button>
 <div class="cartContainer">
-  <h1>Varukorg</h1>
+  <div class="cartHeader">
+    <h2>Varukorg</h2>
+    <button class="closeBtn" (click)="this.cartService.showCart.set(false)">✕</button>
+  </div>
   @if (this.cartService.cart().length === 0) {
     <p>Din varukorg är tom</p>
     <p>När du lägger till varor i varukorgen visas de här</p>
   } @else {
     <div class="cartList">
       @for (cartItem of this.cartService.cart(); track $index) {
-        <div>
-          <label>{{ cartItem.product.productName }}</label>
-          <label>Storlek: {{ cartItem.size }}</label>
-          <label>Antal: {{ cartItem.quantity }}</label>
-          <label>Pris: {{ cartItem.product.price }} kr</label>
+        <div class="cartItem">
+          <strong>{{ cartItem.product.productName }}</strong>
+          @if (cartItem.size) {
+            <span>Storlek: {{ cartItem.size }}</span>
+          }
+          <span>Antal: {{ cartItem.quantity }}</span>
+          <span>{{ cartItem.product.price }} kr</span>
         </div>
       }
-      <label class="sum">Summa: {{ sum() }} kr</label>
-      <button (click)="onCheckout()">Checka ut</button>
     </div>
+    <p class="sum">Summa: {{ sum() }} kr</p>
+    <button class="checkoutBtn" (click)="onCheckout()">Till kassan</button>
   }
 </div>
