@@ -15,7 +15,7 @@
 - Jag har använt ChatGPT och Gemini för att generera alla bilder för produkter i applikationen.
 - Jag har använt Claude för att förklara hur man använder computed values, router parameters och window.location.href i Angular
 - Jag har även använt Claude för att förklara och skapa Dockerfilen och nginx.conf för att kunna deploya projektet på min droplet på DigitalOcean.
-- Jag har även använt Claude för viss felsökning och hjälp med CSS.
+- Jag har även använt Claude för viss felsökning och genererat i stort sett all CSS samt en del HTML-struktur för den sista finputsningen av CSS:en.
 
 # Tekniker (Kurskrav)
 - OpenAI API (gpt-4o) – chatbot
